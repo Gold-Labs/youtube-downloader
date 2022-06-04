@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+  </head>
+  <!-- <script src="./build/renderer.js"></script> -->
+  <body class="bg-slate-900 text-slate-400">
+    <h1 class="text-3xl text-white font-bold">Youtube Downloader</h1>
+    <div class="mt-6" id="Downloader">
+      <label class="block">
+        <span
+          class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium"
+        >
+          URL
+        </span>
+        <input
+          id="url"
+          type="email"
+          name="email"
+          class="mt-1 h-10 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+          placeholder="https://www.youtube.com/watch?v="
+        />
+      </label>
+
+      <label class="block">
+        <span
+          class="after:content-['*'] mt-4 after:ml-0.5 after:text-red-500 block text-sm font-medium"
+        >
+          Folder Location
+        </span>
+        <button
+          type="email"
+          name="email"
+          data-id="folderLocationBtn"
+          id="folderLocationBtn"
+          class="mt-1 flex items-center h-10 hover:bg-sky-400 transition-colors hover:text-white px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 w-full rounded-md sm:text-sm focus:ring-1"
+          placeholder="https://www.youtube.com/watch?v="
+        >
+          Set folder location...
+        </button>
+      </label>
+
+      <button
+        type="button"
+        data-id="download"
+        id="download"
+        class="mt-4 inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white transition-colors hover:bg-sky-400 bg-sky-500 active:bg-sky-600"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="-ml-1 mr-3 h-5 w-5 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+          ></path>
+        </svg>
+
+        Download
+      </button>
+      <!-- <script src=""></script> -->
+      <script></script>
+    </div>
+  </body>
+</html>
