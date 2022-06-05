@@ -42,6 +42,7 @@
           "config": {}
         }
       ],
+      "hooks": "require:./hooks.js",
       "plugins": [
         [
           "@electron-forge/plugin-webpack",
@@ -53,6 +54,9 @@
                 {
                   "html": "./src/client/index.html",
                   "js": "./src/client/index.ts",
+                  "preload": {
+                    "js": "./src/preload.ts"
+                  },
                   "name": "main_window"
                 }
               ]

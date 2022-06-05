@@ -31,29 +31,29 @@ import "./style/input.css";
 
 const downloadBtn = document.querySelector("#download");
 const folderLocationBtn = document.querySelector("#folderLocationBtn");
-const pathInput = document.querySelector<HTMLDivElement>("#folder-location");
 const urlInput = document.querySelector<HTMLInputElement>("#url");
 
 folderLocationBtn.addEventListener("click", async () => {
   const result = await window.api.selectFolderPopup();
   const { filePaths, canceled } = result;
+  console.log(filePaths, canceled);
   if (canceled) return;
-  if (!pathInput) return;
-  pathInput.textContent = filePaths[0];
+  if (!folderLocationBtn) return;
+  folderLocationBtn.textContent = filePaths[0];
   console.log(result);
 });
 
 downloadBtn.addEventListener("click", async () => {
   const url = urlInput?.value ?? "";
-  const path = pathInput?.textContent ?? "";
+  const path = folderLocationBtn?.textContent ?? "";
   console.log({ path, url });
   const result = await window.api.downloadVideo(url, path);
   console.log(result);
 });
 
 downloadBtn.addEventListener("click", () => {
-  // 끝나면 origin으로 바꾸기  
-  const originInnerHTML =downloadBtn.innerHTML
+  // 끝나면 origin으로 바꾸기
+  const originInnerHTML = downloadBtn.innerHTML;
 
   downloadBtn.innerHTML = ` <svg
           class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white"

@@ -8,6 +8,7 @@ export type ContextBridgeApi = {
   }>;
   downloadVideo: (url: string, path: string) => Promise<any>;
 };
+
 //  IPC 정의를 함 API라는 것으로
 contextBridge.exposeInMainWorld("api", {
   selectFolderPopup: () => ipcRenderer.invoke("select-folder-popup", true),
