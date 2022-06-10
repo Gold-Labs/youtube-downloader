@@ -4,12 +4,20 @@ import os from "os";
 import path from "path";
 import getVideoIdList from "../getVideoListData";
 
+type PathByOS = Record<NodeJS.Platform, string>;
+
 function createytDlpWrap() {
   const fileName = os.platform() === "win32" ? "yt.exe" : "yt";
   if (process.env.NODE_ENV === "development") {
     return new YTDlpWrap();
   }
-  return new YTDlpWrap(`./resources/app/${fileName}`);
+
+  const filePathByOS: Partial<PathByOS> = {
+    darwin: path.resolve(__dirname + `/../../${fileName}`),
+    win32: path.resolve(__dirname + `/../../${fileName}`),
+  };
+  const filePath = filePathByOS[os.platform()];
+  return new YTDlpWrap(filePath);
 }
 
 const isPlayList = (url: string) => {
