@@ -14,7 +14,7 @@ function createytDlpWrap() {
 
   const filePathByOS: Partial<PathByOS> = {
     darwin: path.resolve(__dirname + `/../../${fileName}`),
-    win32: path.resolve(__dirname + `/resources/app/${fileName}`),
+    win32: path.resolve(__dirname + `/../../${fileName}`),
   };
   const filePath = filePathByOS[os.platform()];
   return new YTDlpWrap(filePath);
