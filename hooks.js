@@ -11,16 +11,8 @@ module.exports = {
     pPlatform,
     pArch
   ) => {
-    // const filePath = "resources/app/.webpack/main";
     let fileName = pPlatform === "win32" ? "yt.exe" : "yt";
-    // if (forgeConfig.electronRebuildConfig.buildPath) {
 
-    fs.promises.writeFile(
-      "./a.txt",
-      [buildPath, electronVersion, pPlatform, pArch].join("\n")
-    );
-    // }
-    // let fileName = "yt";
     await YTDlpWrap.downloadFromGithub(
       `${buildPath}/${fileName}`,
       undefined,

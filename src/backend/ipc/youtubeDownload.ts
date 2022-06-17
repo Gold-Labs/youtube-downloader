@@ -7,15 +7,19 @@ import getVideoIdList from "../getVideoListData";
 type PathByOS = Record<NodeJS.Platform, string>;
 
 function createytDlpWrap() {
-  const fileName = os.platform() === "win32" ? "yt.exe" : "yt";
+  const isWin32 = os.platform() === "win32";
+  const fileName = isWin32 ? "yt.exe" : "yt";
+
   if (process.env.NODE_ENV === "development") {
     return new YTDlpWrap();
   }
-
   const filePathByOS: Partial<PathByOS> = {
     darwin: path.resolve(__dirname + `/../../${fileName}`),
     win32: path.resolve(__dirname + `/../../${fileName}`),
   };
+
+  !isWin32 && fs.chmodSync(filePathByOS[os.platform()], "777");
+
   const filePath = filePathByOS[os.platform()];
   return new YTDlpWrap(filePath);
 }
