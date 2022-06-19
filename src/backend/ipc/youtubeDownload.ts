@@ -18,7 +18,7 @@ function createytDlpWrap() {
     win32: path.resolve(__dirname + `/../../${fileName}`),
   };
 
-  !isWin32 && fs.chmodSync(filePathByOS[os.platform()], "777");
+  // !isWin32 && fs.chmodSync(filePathByOS[os.platform()], "777");
 
   const filePath = filePathByOS[os.platform()];
   return new YTDlpWrap(filePath);
